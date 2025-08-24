@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Create Account - BikeRent Pro</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<!-- Page Loader -->
+	<div class="page-loader">
+		<div class="loader-spinner"></div>
+	</div>
+
+	<section class="min-vh-100 d-flex align-items-center py-5">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-11 col-xl-10">
+					<div class="card border-0 shadow-2xl overflow-hidden">
+						<div class="row g-0">
+							<!-- Left Side - Image -->
+							<div class="col-lg-5 d-none d-lg-block position-relative">
+								<div class="h-100 position-relative">
+									<img src="images/bg-1.jpg" alt="BikeRent Pro" class="w-100 h-100" style="object-fit: cover;">
+									<div class="position-absolute top-0 start-0 w-100 h-100 bg-gradient-secondary opacity-75"></div>
+									<div class="position-absolute top-50 start-50 translate-middle text-center text-white">
+										<div class="mb-4">
+											<img src="images/bike6.jpg" alt="BikeRent Pro" width="80" height="70" class="rounded-circle shadow">
+										</div>
+										<h2 class="mb-3">Join BikeRent Pro!</h2>
+										<p class="lead">Create your account and unlock access to our premium motorcycle fleet.</p>
+										<div class="mt-4">
+											<div class="d-flex justify-content-center align-items-center mb-2">
+												<i class="fas fa-gift me-2"></i>
+												<span>Special Welcome Offer</span>
+											</div>
+											<div class="d-flex justify-content-center align-items-center mb-2">
+												<i class="fas fa-star me-2"></i>
+												<span>Premium Membership</span>
+											</div>
+											<div class="d-flex justify-content-center align-items-center">
+												<i class="fas fa-motorcycle me-2"></i>
+												<span>Instant Access</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Right Side - Registration Form -->
+							<div class="col-lg-7">
+								<div class="p-5">
+									<div class="text-center mb-4">
+										<h3 class="fw-bold text-primary">Create Account</h3>
+										<p class="text-muted">Join thousands of satisfied riders</p>
+									</div>
+
+									<!-- Social Registration -->
+									<div class="d-flex gap-2 mb-4">
+										<button class="btn btn-outline-primary flex-fill">
+											<i class="fab fa-facebook-f me-2"></i>Facebook
+										</button>
+										<button class="btn btn-outline-info flex-fill">
+											<i class="fab fa-google me-2"></i>Google
+										</button>
+									</div>
+
+									<div class="text-center mb-4">
+										<span class="text-muted">or create account with email</span>
+									</div>
+									<form class="signin-form" onsubmit="return submitHandle()" action="form.html">
+										<div class="row g-3">
+											<div class="col-md-6">
+												<div class="form-floating input-animated">
+													<input type="text" class="form-control" id="fullName" placeholder="Full Name"
+														   onblur="fullnameValidation()" required>
+													<label for="fullName">Full Name</label>
+													<div class="invalid-feedback">
+														Please enter a valid full name.
+													</div>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-floating input-animated">
+													<input type="email" class="form-control" id="email" placeholder="Email"
+														   onblur="emailValidation()" required>
+													<label for="email">Email Address</label>
+													<div class="invalid-feedback">
+														Please enter a valid email address.
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="form-floating mb-3 input-animated">
+											<input type="tel" class="form-control" id="mobile" placeholder="Mobile Number"
+												   onblur="mobileValidation()" required>
+											<label for="mobile">Mobile Number</label>
+											<div class="invalid-feedback">
+												Please enter a valid 10-digit mobile number.
+											</div>
+										</div>
+
+										<div class="form-floating mb-3 input-animated position-relative">
+											<input type="password" class="form-control" id="password-field" placeholder="Password"
+												   onblur="passValidation()" required>
+											<label for="password-field">Password</label>
+											<button type="button" class="btn btn-link position-absolute top-50 end-0 translate-middle-y pe-3 border-0 bg-transparent toggle-password"
+													toggle="#password-field" style="z-index: 10;">
+												<i class="fas fa-eye text-muted"></i>
+											</button>
+											<div class="invalid-feedback">
+												Password must contain at least 8 characters with uppercase, lowercase, number and special character.
+											</div>
+										</div>
+
+										<div class="form-floating mb-3 input-animated position-relative">
+											<input type="password" class="form-control" id="cpassword-field" placeholder="Confirm Password"
+												   onblur="cpassValidation()" required>
+											<label for="cpassword-field">Confirm Password</label>
+											<button type="button" class="btn btn-link position-absolute top-50 end-0 translate-middle-y pe-3 border-0 bg-transparent toggle-password"
+													toggle="#cpassword-field" style="z-index: 10;">
+												<i class="fas fa-eye text-muted"></i>
+											</button>
+											<div class="invalid-feedback">
+												Passwords do not match.
+											</div>
+										</div>
+
+										<div class="d-flex justify-content-between align-items-center mb-4">
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox" id="agreeTerms" required>
+												<label class="form-check-label" for="agreeTerms">
+													I agree to the <a href="#" class="text-decoration-none">Terms & Conditions</a>
+												</label>
+											</div>
+										</div>
+
+										<div class="form-check mb-4">
+											<input class="form-check-input" type="checkbox" id="newsletter">
+											<label class="form-check-label" for="newsletter">
+												Subscribe to our newsletter for special offers and updates
+											</label>
+										</div>
+
+										<button type="submit" class="btn btn-primary w-100 mb-3 py-3">
+											<i class="fas fa-user-plus me-2"></i>Create Account
+										</button>
+									</form>
+
+									<div class="text-center">
+										<p class="mb-0">Already have an account?
+											<a href="login.html" class="text-decoration-none fw-medium">Sign In</a>
+										</p>
+									</div>
+
+									<!-- Security Features -->
+									<div class="mt-4 pt-4 border-top">
+										<div class="row text-center">
+											<div class="col-4">
+												<i class="fas fa-shield-alt text-success mb-2"></i>
+												<small class="d-block text-muted">Secure</small>
+											</div>
+											<div class="col-4">
+												<i class="fas fa-user-check text-primary mb-2"></i>
+												<small class="d-block text-muted">Verified</small>
+											</div>
+											<div class="col-4">
+												<i class="fas fa-lock text-warning mb-2"></i>
+												<small class="d-block text-muted">Protected</small>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Bootstrap JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+
+	<!-- Custom JS -->
+	<script src="js/main.js"></script>
+
+</body>
+
+<script>
+	// Enhanced validation functions with visual feedback
+	function fullnameValidation() {
+		let $field = $("#fullName");
+		let value = $field.val().trim();
+
+		// Allow letters, spaces, and common name characters
+		var reg = /^[A-Za-z\s]{2,50}$/;
+
+		if (value === "") {
+			$field.removeClass('is-valid').addClass('is-invalid');
+			return false;
+		}
+		else if (!reg.test(value)) {
+			$field.removeClass('is-valid').addClass('is-invalid');
+			return false;
+		}
+		else {
+			$field.removeClass('is-invalid').addClass('is-valid');
+			return true;
+		}
+	}
+
+	function emailValidation() {
+		let $field = $("#email");
+		let value = $field.val().trim();
+
+		var reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+		if (value === "") {
+			$field.removeClass('is-valid').addClass('is-invalid');
+			return false;
+		}
+		else if (!reg.test(value)) {
+			$field.removeClass('is-valid').addClass('is-invalid');
+			return false;
+		}
+		else {
+			$field.removeClass('is-invalid').addClass('is-valid');
+			return true;
+		}
+	}
+
+	function mobileValidation() {
+		let $field = $("#mobile");
+		let value = $field.val().trim();
+
+		var reg = /^\d{10}$/;
+
+		if (value === "") {
+			$field.removeClass('is-valid').addClass('is-invalid');
+			return false;
+		}
+		else if (!reg.test(value)) {
+			$field.removeClass('is-valid').addClass('is-invalid');
+			return false;
+		}
+		else {
+			$field.removeClass('is-invalid').addClass('is-valid');
+			return true;
+		}
+	}
+
+	function passValidation() {
+		let $field = $("#password-field");
+		let value = $field.val();
+
+		var reg = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[~!@#$%^&]).{8,32}$/;
+
+		if (value === "") {
+			$field.removeClass('is-valid').addClass('is-invalid');
+			return false;
+		}
+		else if (!reg.test(value)) {
+			$field.removeClass('is-valid').addClass('is-invalid');
+			return false;
+		}
+		else {
+			$field.removeClass('is-invalid').addClass('is-valid');
+			return true;
+		}
+	}
+
+	function cpassValidation() {
+		let $passField = $("#password-field");
+		let $cpassField = $("#cpassword-field");
+		let passValue = $passField.val();
+		let cpassValue = $cpassField.val();
+
+		if (cpassValue === "") {
+			$cpassField.removeClass('is-valid').addClass('is-invalid');
+			return false;
+		}
+		else if (passValue !== cpassValue) {
+			$cpassField.removeClass('is-valid').addClass('is-invalid');
+			return false;
+		}
+		else {
+			$cpassField.removeClass('is-invalid').addClass('is-valid');
+			return true;
+		}
+	}
+
+	function submitHandle() {
+		var fullnameRes = fullnameValidation();
+		var emailRes = emailValidation();
+		var mobileRes = mobileValidation();
+		var passRes = passValidation();
+		var cpassRes = cpassValidation();
+		var termsAccepted = $("#agreeTerms").is(':checked');
+
+		if (!termsAccepted) {
+			showNotification("Please accept the Terms & Conditions to continue.", "error");
+			return false;
+		}
+
+		if (fullnameRes && emailRes && mobileRes && passRes && cpassRes) {
+			// Show success message
+			showNotification("Account created successfully! Redirecting to login...", "success");
+
+			// Add loading state to button
+			var $submitBtn = $('button[type="submit"]');
+			$submitBtn.html('<i class="fas fa-spinner fa-spin me-2"></i>Creating Account...');
+			$submitBtn.prop('disabled', true);
+
+			// Store user data (in real app, this would be sent to server)
+			var userData = {
+				fullName: $("#fullName").val(),
+				email: $("#email").val(),
+				mobile: $("#mobile").val(),
+				newsletter: $("#newsletter").is(':checked')
+			};
+
+			localStorage.setItem("user_data", JSON.stringify(userData));
+
+			// Redirect after delay
+			setTimeout(() => {
+				window.location.href = "login.html";
+			}, 2000);
+
+			return false; // Prevent form submission
+		}
+
+		showNotification("Please fill all fields correctly.", "error");
+		return false;
+	}
+
+	// Show notification function
+	function showNotification(message, type) {
+		const alertClass = type === 'success' ? 'alert-success' : 'alert-danger';
+		const icon = type === 'success' ? 'fas fa-check-circle' : 'fas fa-exclamation-circle';
+
+		const notification = `
+			<div class="alert ${alertClass} alert-dismissible fade show position-fixed top-0 start-50 translate-middle-x mt-3"
+				 style="z-index: 9999; min-width: 300px;" role="alert">
+				<i class="${icon} me-2"></i>${message}
+				<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+			</div>
+		`;
+
+		$('body').append(notification);
+
+		// Auto remove after 4 seconds
+		setTimeout(() => {
+			$('.alert').alert('close');
+		}, 4000);
+	}
+
+	// Enhanced password toggle for both fields
+	$(".toggle-password").click(function() {
+		const $icon = $(this).find('i');
+		const $input = $($(this).attr("toggle"));
+
+		if ($input.attr("type") === "password") {
+			$input.attr("type", "text");
+			$icon.removeClass("fa-eye").addClass("fa-eye-slash");
+		} else {
+			$input.attr("type", "password");
+			$icon.removeClass("fa-eye-slash").addClass("fa-eye");
+		}
+	});
+
+	// Real-time validation
+	$(document).ready(function() {
+		$('#fullName').on('input', fullnameValidation);
+		$('#email').on('input', emailValidation);
+		$('#mobile').on('input', mobileValidation);
+		$('#password-field').on('input', function() {
+			passValidation();
+			if ($('#cpassword-field').val()) {
+				cpassValidation();
+			}
+		});
+		$('#cpassword-field').on('input', cpassValidation);
+	});
+</script>
+</html>

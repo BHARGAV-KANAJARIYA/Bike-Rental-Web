@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<title>Login - BikeRent Pro</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<script>
+        var accessToken = localStorage.getItem("access_token");
+        if (accessToken != null) {
+            window.location.href = "form.html";
+        }
+    </script>
+</head>
+
+<body>
+	<!-- Page Loader -->
+	<div class="page-loader">
+		<div class="loader-spinner"></div>
+	</div>
+
+	<section class="min-vh-100 d-flex align-items-center">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-10 col-xl-8">
+					<div class="card border-0 shadow-2xl overflow-hidden">
+						<div class="row g-0">
+							<!-- Left Side - Image -->
+							<div class="col-lg-6 d-none d-lg-block position-relative">
+								<div class="h-100 position-relative">
+									<img src="images/bg-1.jpg" alt="BikeRent Pro" class="w-100 h-100" style="object-fit: cover;">
+									<div class="position-absolute top-0 start-0 w-100 h-100 bg-gradient-primary opacity-75"></div>
+									<div class="position-absolute top-50 start-50 translate-middle text-center text-white">
+										<div class="mb-4">
+											<img src="images/bike6.jpg" alt="BikeRent Pro" width="80" height="70" class="rounded-circle shadow">
+										</div>
+										<h2 class="mb-3">Welcome Back!</h2>
+										<p class="lead">Ready for your next adventure? Sign in to access our premium motorcycle fleet.</p>
+										<div class="mt-4">
+											<div class="d-flex justify-content-center align-items-center mb-2">
+												<i class="fas fa-motorcycle me-2"></i>
+												<span>150+ Premium Bikes</span>
+											</div>
+											<div class="d-flex justify-content-center align-items-center mb-2">
+												<i class="fas fa-shield-alt me-2"></i>
+												<span>Fully Insured</span>
+											</div>
+											<div class="d-flex justify-content-center align-items-center">
+												<i class="fas fa-headset me-2"></i>
+												<span>24/7 Support</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Right Side - Login Form -->
+							<div class="col-lg-6">
+								<div class="p-5">
+									<div class="text-center mb-4">
+										<h3 class="fw-bold text-primary">Sign In</h3>
+										<p class="text-muted">Access your BikeRent Pro account</p>
+									</div>
+
+									<!-- Social Login -->
+									<div class="d-flex gap-2 mb-4">
+										<button class="btn btn-outline-primary flex-fill">
+											<i class="fab fa-facebook-f me-2"></i>Facebook
+										</button>
+										<button class="btn btn-outline-info flex-fill">
+											<i class="fab fa-google me-2"></i>Google
+										</button>
+									</div>
+
+									<div class="text-center mb-4">
+										<span class="text-muted">or sign in with email</span>
+									</div>
+
+									<form class="signin-form" onsubmit="return submitHandle()" action="form.html">
+										<div class="form-floating mb-3 input-animated">
+											<input type="text" class="form-control" id="email" placeholder="Username"
+												   onblur="emailValidation()" required>
+											<label for="email">Username</label>
+											<div class="invalid-feedback">
+												Please enter a valid username.
+											</div>
+										</div>
+
+										<div class="form-floating mb-3 input-animated position-relative">
+											<input type="password" class="form-control" id="password-field" placeholder="Password"
+												   onblur="passValidation()" required>
+											<label for="password-field">Password</label>
+											<button type="button" class="btn btn-link position-absolute top-50 end-0 translate-middle-y pe-3 border-0 bg-transparent toggle-password"
+													toggle="#password-field" style="z-index: 10;">
+												<i class="fas fa-eye text-muted"></i>
+											</button>
+											<div class="invalid-feedback">
+												Please enter a valid password.
+											</div>
+										</div>
+
+										<div class="d-flex justify-content-between align-items-center mb-4">
+											<div class="form-check">
+												<input class="form-check-input" type="checkbox" id="rememberMe" checked>
+												<label class="form-check-label" for="rememberMe">
+													Remember me
+												</label>
+											</div>
+											<a href="#" class="text-decoration-none">Forgot Password?</a>
+										</div>
+
+										<button type="submit" class="btn btn-primary w-100 mb-3 py-3">
+											<i class="fas fa-sign-in-alt me-2"></i>Sign In
+										</button>
+									</form>
+
+									<div class="text-center">
+										<p class="mb-0">Don't have an account?
+											<a href="acount.html" class="text-decoration-none fw-medium">Create Account</a>
+										</p>
+									</div>
+
+									<!-- Features -->
+									<div class="mt-4 pt-4 border-top">
+										<div class="row text-center">
+											<div class="col-4">
+												<i class="fas fa-lock text-success mb-2"></i>
+												<small class="d-block text-muted">Secure</small>
+											</div>
+											<div class="col-4">
+												<i class="fas fa-bolt text-warning mb-2"></i>
+												<small class="d-block text-muted">Fast</small>
+											</div>
+											<div class="col-4">
+												<i class="fas fa-heart text-danger mb-2"></i>
+												<small class="d-block text-muted">Trusted</small>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Bootstrap JS -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+
+	<!-- Custom JS -->
+	<script src="js/main.js"></script>
+
+</body>
+
+<script>
+	// Enhanced form validation with visual feedback
+	function emailValidation() {
+		var email = $("#email").val();
+		var $emailField = $("#email");
+
+		// Username validation (allowing alphanumeric and special characters)
+		var reg = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[~!@#$%^&]).{8,32}$/;
+
+		if (email == "") {
+			$emailField.removeClass('is-valid').addClass('is-invalid');
+			console.log("Please fill the email field");
+			return false;
+		}
+		else if (!reg.test(email)) {
+			$emailField.removeClass('is-valid').addClass('is-invalid');
+			console.log("Email field not valid");
+			return false;
+		}
+		else {
+			$emailField.removeClass('is-invalid').addClass('is-valid');
+			return true;
+		}
+	}
+
+	function passValidation() {
+		var pass = $("#password-field").val();
+		var $passField = $("#password-field");
+
+		var reg = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[~!@#$%^&]).{8,32}$/;
+
+		if (pass == "") {
+			$passField.removeClass('is-valid').addClass('is-invalid');
+			console.log("Please fill the password field");
+			return false;
+		}
+		else if (!reg.test(pass)) {
+			$passField.removeClass('is-valid').addClass('is-invalid');
+			console.log("Password field not valid");
+			return false;
+		}
+		else {
+			$passField.removeClass('is-invalid').addClass('is-valid');
+			return true;
+		}
+	}
+
+	function submitHandle() {
+		var emailRes = emailValidation();
+		var passRes = passValidation();
+
+		if (emailRes && passRes) {
+			var email = $("#email").val();
+			var pass = $("#password-field").val();
+
+			var encodedString = btoa(email + " " + pass);
+			localStorage.setItem("access_token", encodedString);
+
+			// Show success message
+			showNotification("Login successful! Redirecting...", "success");
+
+			// Add loading state to button
+			var $submitBtn = $('button[type="submit"]');
+			$submitBtn.html('<i class="fas fa-spinner fa-spin me-2"></i>Signing In...');
+			$submitBtn.prop('disabled', true);
+
+			// Redirect after a short delay
+			setTimeout(() => {
+				return true;
+			}, 1000);
+
+			return true;
+		}
+
+		showNotification("Please check your credentials and try again.", "error");
+		return false;
+	}
+
+	// Show notification function
+	function showNotification(message, type) {
+		const alertClass = type === 'success' ? 'alert-success' : 'alert-danger';
+		const icon = type === 'success' ? 'fas fa-check-circle' : 'fas fa-exclamation-circle';
+
+		const notification = `
+			<div class="alert ${alertClass} alert-dismissible fade show position-fixed top-0 start-50 translate-middle-x mt-3"
+				 style="z-index: 9999; min-width: 300px;" role="alert">
+				<i class="${icon} me-2"></i>${message}
+				<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+			</div>
+		`;
+
+		$('body').append(notification);
+
+		// Auto remove after 3 seconds
+		setTimeout(() => {
+			$('.alert').alert('close');
+		}, 3000);
+	}
+
+	// Enhanced password toggle
+	$(".toggle-password").click(function() {
+		const $icon = $(this).find('i');
+		const $input = $($(this).attr("toggle"));
+
+		if ($input.attr("type") === "password") {
+			$input.attr("type", "text");
+			$icon.removeClass("fa-eye").addClass("fa-eye-slash");
+		} else {
+			$input.attr("type", "password");
+			$icon.removeClass("fa-eye-slash").addClass("fa-eye");
+		}
+	});
+
+	// Add floating label animation
+	$(document).ready(function() {
+		$('.form-floating input').on('focus blur', function() {
+			$(this).closest('.form-floating').toggleClass('focused');
+		});
+	});
+</script>
+
+</html>

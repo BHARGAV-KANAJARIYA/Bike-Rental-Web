@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BikeRent Pro - Premium Bike Rental Service</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="images/bike6.jpg">
+
+  <script>
+      var accessToken = localStorage.getItem('access_token');
+      if (!accessToken) {
+          window.location.href = './login.html';
+      }
+      function logOutUser() {
+          localStorage.removeItem("access_token");
+          window.location.href = './login.html';
+      }
+  </script>
+
+</head>
+
+<body>
+  <!-- Page Loader -->
+  <div class="page-loader">
+    <div class="loader-spinner"></div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="images/bike6.jpg" alt="BikeRent Pro" width="45" height="40" class="rounded-circle me-2">
+        <span class="gradient-text fw-bold">BikeRent Pro</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#hero">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#bikes">Bikes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#reviews">Reviews</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+
+        <div class="d-flex align-items-center">
+          <button type="button" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#profileModal">
+            <i class="fas fa-user me-1"></i> Profile
+          </button>
+          <button type="button" class="btn btn-primary" onclick="logOutUser()">
+            <i class="fas fa-sign-out-alt me-1"></i> Logout
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Profile Modal -->
+  <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="profileModalLabel">
+            <i class="fas fa-user-circle me-2"></i>User Profile
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body p-0">
+          <div class="row g-0">
+            <div class="col-md-4 bg-gradient-primary text-white p-4 text-center">
+              <div class="profile-avatar mb-3">
+                <img src="images/profile.jpg" alt="Profile" class="rounded-circle img-fluid" style="width: 100px; height: 100px; object-fit: cover;">
+              </div>
+              <h5 class="mb-1">Alex Johnson</h5>
+              <p class="mb-3 opacity-75">Premium Member</p>
+              <div class="stats">
+                <div class="stat-item mb-2">
+                  <i class="fas fa-motorcycle me-2"></i>
+                  <span>12 Rentals</span>
+                </div>
+                <div class="stat-item">
+                  <i class="fas fa-star me-2"></i>
+                  <span>4.9 Rating</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-8 p-4">
+              <h6 class="text-primary mb-3">
+                <i class="fas fa-info-circle me-2"></i>Personal Information
+              </h6>
+
+              <div class="row mb-4">
+                <div class="col-6">
+                  <label class="text-muted small">Email Address</label>
+                  <p class="mb-0 fw-medium">alex.johnson@email.com</p>
+                </div>
+                <div class="col-6">
+                  <label class="text-muted small">Phone Number</label>
+                  <p class="mb-0 fw-medium">+1 (555) 123-4567</p>
+                </div>
+              </div>
+
+              <div class="row mb-4">
+                <div class="col-6">
+                  <label class="text-muted small">Member Since</label>
+                  <p class="mb-0 fw-medium">January 2023</p>
+                </div>
+                <div class="col-6">
+                  <label class="text-muted small">Location</label>
+                  <p class="mb-0 fw-medium">New York, NY</p>
+                </div>
+              </div>
+
+              <h6 class="text-primary mb-3">
+                <i class="fas fa-chart-line me-2"></i>Rental History
+              </h6>
+
+              <div class="row">
+                <div class="col-6">
+                  <label class="text-muted small">Total Rentals</label>
+                  <p class="mb-0 fw-medium">12 Bikes</p>
+                </div>
+                <div class="col-6">
+                  <label class="text-muted small">Favorite Bike</label>
+                  <p class="mb-0 fw-medium">Honda CBR 600</p>
+                </div>
+              </div>
+
+              <div class="social-links mt-4">
+                <h6 class="text-primary mb-2">
+                  <i class="fas fa-share-alt me-2"></i>Social Media
+                </h6>
+                <a href="#" class="btn btn-outline-primary btn-sm me-2">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="btn btn-outline-info btn-sm me-2">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="btn btn-outline-danger btn-sm">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+            <i class="fas fa-times me-1"></i>Close
+          </button>
+          <button type="button" class="btn btn-primary">
+            <i class="fas fa-edit me-1"></i>Edit Profile
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero-section">
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+      </div>
+
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="images/bike7.jpg" class="d-block w-100" alt="Premium Bike Rental">
+          <div class="overlay"></div>
+          <div class="carousel-caption">
+            <h1 class="display-4 fw-bold mb-4">
+              Ride Your <span class="text-gradient">Dreams</span>
+            </h1>
+            <p class="lead mb-4">
+              Experience the thrill of premium motorcycles with our top-rated rental service.
+              From sport bikes to cruisers, we have the perfect ride for every adventure.
+            </p>
+            <div class="hero-buttons">
+              <a href="#bikes" class="btn btn-primary btn-lg me-3">
+                <i class="fas fa-motorcycle me-2"></i>Browse Bikes
+              </a>
+              <a href="#about" class="btn btn-outline-light btn-lg">
+                <i class="fas fa-play me-2"></i>Learn More
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <img src="images/bike9.jpg" class="d-block w-100" alt="Adventure Awaits">
+          <div class="overlay"></div>
+          <div class="carousel-caption">
+            <h1 class="display-4 fw-bold mb-4">
+              Adventure <span class="text-gradient">Awaits</span>
+            </h1>
+            <p class="lead mb-4">
+              Discover new horizons with our diverse fleet of motorcycles.
+              Whether it's a weekend getaway or a cross-country journey, we've got you covered.
+            </p>
+            <div class="hero-buttons">
+              <a href="#bikes" class="btn btn-secondary btn-lg me-3">
+                <i class="fas fa-route me-2"></i>Plan Your Trip
+              </a>
+              <a href="#reviews" class="btn btn-outline-light btn-lg">
+                <i class="fas fa-star me-2"></i>Read Reviews
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <img src="images/bike8.jpg" class="d-block w-100" alt="Premium Service">
+          <div class="overlay"></div>
+          <div class="carousel-caption">
+            <h1 class="display-4 fw-bold mb-4">
+              Premium <span class="text-gradient">Service</span>
+            </h1>
+            <p class="lead mb-4">
+              Experience unmatched quality and service with our meticulously maintained fleet.
+              Every bike is inspected and ready for your next adventure.
+            </p>
+            <div class="hero-buttons">
+              <a href="#contact" class="btn btn-primary btn-lg me-3">
+                <i class="fas fa-phone me-2"></i>Contact Us
+              </a>
+              <a href="#about" class="btn btn-outline-light btn-lg">
+                <i class="fas fa-info-circle me-2"></i>Our Story
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Bikes Section -->
+  <section id="bikes" class="section">
+    <div class="container">
+      <div class="section-title fade-in">
+        <h2>Our Premium Fleet</h2>
+        <p>Choose from our carefully curated collection of high-performance motorcycles,
+           each maintained to the highest standards for your safety and enjoyment.</p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="text-center mb-5 fade-in">
+        <div class="btn-group" role="group" aria-label="Bike filters">
+          <button type="button" class="btn btn-outline-primary active" data-filter="all">All Bikes</button>
+          <button type="button" class="btn btn-outline-primary" data-filter="sport">Sport</button>
+          <button type="button" class="btn btn-outline-primary" data-filter="cruiser">Cruiser</button>
+          <button type="button" class="btn btn-outline-primary" data-filter="touring">Touring</button>
+        </div>
+      </div>
+
+      <div class="row g-4" id="bike-container">
+        <!-- Bike Card 1 -->
+        <div class="col-lg-4 col-md-6 fade-in bike-card" data-category="sport">
+          <div class="card h-100">
+            <div class="position-relative">
+              <img src="images/bike4.jpg" class="card-img-top" alt="Honda CBR 600RR">
+              <div class="position-absolute top-0 end-0 m-3">
+                <span class="year-badge">2023</span>
+              </div>
+              <div class="position-absolute top-0 start-0 m-3">
+                <span class="badge bg-success">Available</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h5 class="card-title mb-0">Honda CBR 600RR</h5>
+                <div class="rating">
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <small class="text-muted ms-1">(4.9)</small>
+                </div>
+              </div>
+              <p class="card-text text-muted">High-performance sport bike perfect for track days and spirited rides.</p>
+              <div class="bike-specs mb-3">
+                <small class="text-muted">
+                  <i class="fas fa-tachometer-alt me-1"></i>600cc |
+                  <i class="fas fa-cog ms-2 me-1"></i>6-Speed |
+                  <i class="fas fa-gas-pump ms-2 me-1"></i>Sport
+                </small>
+              </div>
+              <div class="price-section mb-3">
+                <span class="price-badge">$89/day</span>
+                <small class="text-muted ms-2">or $2,400/month</small>
+              </div>
+              <button class="btn btn-primary w-100 rent-btn">
+                <i class="fas fa-motorcycle me-2"></i>Rent Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bike Card 2 -->
+        <div class="col-lg-4 col-md-6 fade-in bike-card" data-category="cruiser">
+          <div class="card h-100">
+            <div class="position-relative">
+              <img src="images/bike5.jpg" class="card-img-top" alt="Harley Davidson Street 750">
+              <div class="position-absolute top-0 end-0 m-3">
+                <span class="year-badge">2022</span>
+              </div>
+              <div class="position-absolute top-0 start-0 m-3">
+                <span class="badge bg-success">Available</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h5 class="card-title mb-0">Harley Street 750</h5>
+                <div class="rating">
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="far fa-star text-warning"></i>
+                  <small class="text-muted ms-1">(4.7)</small>
+                </div>
+              </div>
+              <p class="card-text text-muted">Classic cruiser with modern performance and timeless Harley styling.</p>
+              <div class="bike-specs mb-3">
+                <small class="text-muted">
+                  <i class="fas fa-tachometer-alt me-1"></i>750cc |
+                  <i class="fas fa-cog ms-2 me-1"></i>6-Speed |
+                  <i class="fas fa-road ms-2 me-1"></i>Cruiser
+                </small>
+              </div>
+              <div class="price-section mb-3">
+                <span class="price-badge">$95/day</span>
+                <small class="text-muted ms-2">or $2,650/month</small>
+              </div>
+              <button class="btn btn-primary w-100 rent-btn">
+                <i class="fas fa-motorcycle me-2"></i>Rent Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bike Card 3 -->
+        <div class="col-lg-4 col-md-6 fade-in bike-card" data-category="sport">
+          <div class="card h-100">
+            <div class="position-relative">
+              <img src="images/bike6.jpg" class="card-img-top" alt="Yamaha YZF-R6">
+              <div class="position-absolute top-0 end-0 m-3">
+                <span class="year-badge">2023</span>
+              </div>
+              <div class="position-absolute top-0 start-0 m-3">
+                <span class="badge bg-warning text-dark">Rented</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h5 class="card-title mb-0">Yamaha YZF-R6</h5>
+                <div class="rating">
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <small class="text-muted ms-1">(5.0)</small>
+                </div>
+              </div>
+              <p class="card-text text-muted">Track-focused supersport with cutting-edge technology and performance.</p>
+              <div class="bike-specs mb-3">
+                <small class="text-muted">
+                  <i class="fas fa-tachometer-alt me-1"></i>600cc |
+                  <i class="fas fa-cog ms-2 me-1"></i>6-Speed |
+                  <i class="fas fa-flag-checkered ms-2 me-1"></i>Track
+                </small>
+              </div>
+              <div class="price-section mb-3">
+                <span class="price-badge">$92/day</span>
+                <small class="text-muted ms-2">or $2,500/month</small>
+              </div>
+              <button class="btn btn-outline-secondary w-100" disabled>
+                <i class="fas fa-clock me-2"></i>Currently Rented
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bike Card 4 -->
+        <div class="col-lg-4 col-md-6 fade-in bike-card" data-category="touring">
+          <div class="card h-100">
+            <div class="position-relative">
+              <img src="images/bike1.jpg" class="card-img-top" alt="BMW R1250GS">
+              <div class="position-absolute top-0 end-0 m-3">
+                <span class="year-badge">2023</span>
+              </div>
+              <div class="position-absolute top-0 start-0 m-3">
+                <span class="badge bg-success">Available</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h5 class="card-title mb-0">BMW R1250GS</h5>
+                <div class="rating">
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <small class="text-muted ms-1">(4.8)</small>
+                </div>
+              </div>
+              <p class="card-text text-muted">Adventure touring bike built for long-distance comfort and capability.</p>
+              <div class="bike-specs mb-3">
+                <small class="text-muted">
+                  <i class="fas fa-tachometer-alt me-1"></i>1250cc |
+                  <i class="fas fa-cog ms-2 me-1"></i>6-Speed |
+                  <i class="fas fa-mountain ms-2 me-1"></i>Adventure
+                </small>
+              </div>
+              <div class="price-section mb-3">
+                <span class="price-badge">$125/day</span>
+                <small class="text-muted ms-2">or $3,200/month</small>
+              </div>
+              <button class="btn btn-primary w-100 rent-btn">
+                <i class="fas fa-motorcycle me-2"></i>Rent Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bike Card 5 -->
+        <div class="col-lg-4 col-md-6 fade-in bike-card" data-category="sport">
+          <div class="card h-100">
+            <div class="position-relative">
+              <img src="images/bike2.jpg" class="card-img-top" alt="Kawasaki Ninja ZX-10R">
+              <div class="position-absolute top-0 end-0 m-3">
+                <span class="year-badge">2023</span>
+              </div>
+              <div class="position-absolute top-0 start-0 m-3">
+                <span class="badge bg-success">Available</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h5 class="card-title mb-0">Kawasaki ZX-10R</h5>
+                <div class="rating">
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <small class="text-muted ms-1">(4.9)</small>
+                </div>
+              </div>
+              <p class="card-text text-muted">Superbike with race-proven technology and incredible performance.</p>
+              <div class="bike-specs mb-3">
+                <small class="text-muted">
+                  <i class="fas fa-tachometer-alt me-1"></i>1000cc |
+                  <i class="fas fa-cog ms-2 me-1"></i>6-Speed |
+                  <i class="fas fa-trophy ms-2 me-1"></i>Superbike
+                </small>
+              </div>
+              <div class="price-section mb-3">
+                <span class="price-badge">$135/day</span>
+                <small class="text-muted ms-2">or $3,500/month</small>
+              </div>
+              <button class="btn btn-primary w-100 rent-btn">
+                <i class="fas fa-motorcycle me-2"></i>Rent Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bike Card 6 -->
+        <div class="col-lg-4 col-md-6 fade-in bike-card" data-category="cruiser">
+          <div class="card h-100">
+            <div class="position-relative">
+              <img src="images/bike3.jpg" class="card-img-top" alt="Indian Scout Bobber">
+              <div class="position-absolute top-0 end-0 m-3">
+                <span class="year-badge">2022</span>
+              </div>
+              <div class="position-absolute top-0 start-0 m-3">
+                <span class="badge bg-success">Available</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h5 class="card-title mb-0">Indian Scout Bobber</h5>
+                <div class="rating">
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="far fa-star text-warning"></i>
+                  <small class="text-muted ms-1">(4.6)</small>
+                </div>
+              </div>
+              <p class="card-text text-muted">Modern bobber with classic styling and contemporary performance.</p>
+              <div class="bike-specs mb-3">
+                <small class="text-muted">
+                  <i class="fas fa-tachometer-alt me-1"></i>1133cc |
+                  <i class="fas fa-cog ms-2 me-1"></i>6-Speed |
+                  <i class="fas fa-fire ms-2 me-1"></i>Bobber
+                </small>
+              </div>
+              <div class="price-section mb-3">
+                <span class="price-badge">$105/day</span>
+                <small class="text-muted ms-2">or $2,850/month</small>
+              </div>
+              <button class="btn btn-primary w-100 rent-btn">
+                <i class="fas fa-motorcycle me-2"></i>Rent Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional Bikes (Hidden initially) -->
+        <div class="col-lg-4 col-md-6 fade-in bike-card additional-bikes" data-category="sport" style="display: none;">
+          <div class="card h-100">
+            <div class="position-relative">
+              <img src="images/bike7.jpg" class="card-img-top" alt="Ducati Panigale V4">
+              <div class="position-absolute top-0 end-0 m-3">
+                <span class="year-badge">2024</span>
+              </div>
+              <div class="position-absolute top-0 start-0 m-3">
+                <span class="badge bg-success">Available</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h5 class="card-title mb-0">Ducati Panigale V4</h5>
+                <div class="rating">
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <small class="text-muted ms-1">(5.0)</small>
+                </div>
+              </div>
+              <p class="card-text text-muted">Italian superbike masterpiece with unmatched performance and style.</p>
+              <div class="bike-specs mb-3">
+                <small class="text-muted">
+                  <i class="fas fa-tachometer-alt me-1"></i>1103cc |
+                  <i class="fas fa-cog ms-2 me-1"></i>6-Speed |
+                  <i class="fas fa-crown ms-2 me-1"></i>Premium
+                </small>
+              </div>
+              <div class="price-section mb-3">
+                <span class="price-badge">$180/day</span>
+                <small class="text-muted ms-2">or $4,800/month</small>
+              </div>
+              <button class="btn btn-primary w-100 rent-btn">
+                <i class="fas fa-motorcycle me-2"></i>Rent Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 fade-in bike-card additional-bikes" data-category="touring" style="display: none;">
+          <div class="card h-100">
+            <div class="position-relative">
+              <img src="images/bike8.jpg" class="card-img-top" alt="Honda Gold Wing">
+              <div class="position-absolute top-0 end-0 m-3">
+                <span class="year-badge">2023</span>
+              </div>
+              <div class="position-absolute top-0 start-0 m-3">
+                <span class="badge bg-success">Available</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h5 class="card-title mb-0">Honda Gold Wing</h5>
+                <div class="rating">
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <small class="text-muted ms-1">(4.9)</small>
+                </div>
+              </div>
+              <p class="card-text text-muted">Ultimate touring machine with luxury features and supreme comfort.</p>
+              <div class="bike-specs mb-3">
+                <small class="text-muted">
+                  <i class="fas fa-tachometer-alt me-1"></i>1833cc |
+                  <i class="fas fa-cog ms-2 me-1"></i>7-Speed |
+                  <i class="fas fa-gem ms-2 me-1"></i>Luxury
+                </small>
+              </div>
+              <div class="price-section mb-3">
+                <span class="price-badge">$150/day</span>
+                <small class="text-muted ms-2">or $4,000/month</small>
+              </div>
+              <button class="btn btn-primary w-100 rent-btn">
+                <i class="fas fa-motorcycle me-2"></i>Rent Now
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 fade-in bike-card additional-bikes" data-category="cruiser" style="display: none;">
+          <div class="card h-100">
+            <div class="position-relative">
+              <img src="images/bike9.jpg" class="card-img-top" alt="Triumph Bonneville">
+              <div class="position-absolute top-0 end-0 m-3">
+                <span class="year-badge">2023</span>
+              </div>
+              <div class="position-absolute top-0 start-0 m-3">
+                <span class="badge bg-success">Available</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-start mb-2">
+                <h5 class="card-title mb-0">Triumph Bonneville</h5>
+                <div class="rating">
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="far fa-star text-warning"></i>
+                  <small class="text-muted ms-1">(4.7)</small>
+                </div>
+              </div>
+              <p class="card-text text-muted">Classic British motorcycle with modern reliability and timeless appeal.</p>
+              <div class="bike-specs mb-3">
+                <small class="text-muted">
+                  <i class="fas fa-tachometer-alt me-1"></i>900cc |
+                  <i class="fas fa-cog ms-2 me-1"></i>5-Speed |
+                  <i class="fas fa-flag ms-2 me-1"></i>Classic
+                </small>
+              </div>
+              <div class="price-section mb-3">
+                <span class="price-badge">$110/day</span>
+                <small class="text-muted ms-2">or $2,950/month</small>
+              </div>
+              <button class="btn btn-primary w-100 rent-btn">
+                <i class="fas fa-motorcycle me-2"></i>Rent Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- View More Button -->
+      <div class="text-center mt-5 fade-in">
+        <button class="btn btn-outline-primary btn-lg" id="viewMoreBtn">
+          <i class="fas fa-plus me-2"></i>View More Bikes
+        </button>
+        <button class="btn btn-outline-secondary btn-lg" id="viewLessBtn" style="display: none;">
+          <i class="fas fa-minus me-2"></i>View Less Bikes
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about" class="section bg-light">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 fade-in">
+          <div class="about-image position-relative">
+            <img src="images/bike8.jpg" alt="About BikeRent Pro" class="img-fluid rounded-modern shadow-lg">
+            <div class="position-absolute top-0 start-0 w-100 h-100 bg-gradient-primary opacity-10 rounded-modern"></div>
+            <div class="position-absolute bottom-0 start-0 p-4">
+              <div class="bg-white rounded p-3 shadow">
+                <div class="d-flex align-items-center">
+                  <div class="me-3">
+                    <i class="fas fa-award text-primary fa-2x"></i>
+                  </div>
+                  <div>
+                    <h6 class="mb-0">15+ Years</h6>
+                    <small class="text-muted">Experience</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 fade-in">
+          <div class="about-content ps-lg-4">
+            <div class="section-title text-start mb-4">
+              <h2>Best Customer Experience</h2>
+              <p>Delivering premium motorcycle rental services with unmatched quality and customer satisfaction.</p>
+            </div>
+
+            <p class="mb-4">
+              Welcome to BikeRent Pro! We are passionate about providing exceptional motorcycle rental experiences.
+              Our mission is to offer a premium fleet of well-maintained motorcycles for riders of all skill levels,
+              from weekend warriors to seasoned touring enthusiasts.
+            </p>
+
+            <p class="mb-4">
+              With over 15 years of experience in the motorcycle industry, our team brings decades of combined
+              expertise to ensure every ride is safe, enjoyable, and memorable. We meticulously maintain our fleet
+              and provide comprehensive support to make your adventure unforgettable.
+            </p>
+
+            <div class="row g-3 mb-4">
+              <div class="col-6">
+                <div class="d-flex align-items-center">
+                  <i class="fas fa-check-circle text-success me-2"></i>
+                  <span>Premium Fleet</span>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="d-flex align-items-center">
+                  <i class="fas fa-check-circle text-success me-2"></i>
+                  <span>24/7 Support</span>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="d-flex align-items-center">
+                  <i class="fas fa-check-circle text-success me-2"></i>
+                  <span>Expert Maintenance</span>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="d-flex align-items-center">
+                  <i class="fas fa-check-circle text-success me-2"></i>
+                  <span>Flexible Rentals</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex flex-wrap gap-3">
+              <a href="#contact" class="btn btn-primary">
+                <i class="fas fa-phone me-2"></i>Contact Us
+              </a>
+              <a href="#bikes" class="btn btn-outline-primary">
+                <i class="fas fa-motorcycle me-2"></i>View Fleet
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats Section -->
+      <div class="row mt-5 pt-5 fade-in">
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="text-center">
+            <div class="stat-icon mb-3">
+              <i class="fas fa-motorcycle text-primary fa-3x"></i>
+            </div>
+            <h3 class="counter text-primary" data-count="150">0</h3>
+            <p class="text-muted">Premium Bikes</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="text-center">
+            <div class="stat-icon mb-3">
+              <i class="fas fa-users text-secondary fa-3x"></i>
+            </div>
+            <h3 class="counter text-secondary" data-count="5000">0</h3>
+            <p class="text-muted">Happy Customers</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="text-center">
+            <div class="stat-icon mb-3">
+              <i class="fas fa-map-marked-alt text-success fa-3x"></i>
+            </div>
+            <h3 class="counter text-success" data-count="25">0</h3>
+            <p class="text-muted">Cities Covered</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="text-center">
+            <div class="stat-icon mb-3">
+              <i class="fas fa-award text-warning fa-3x"></i>
+            </div>
+            <h3 class="counter text-warning" data-count="15">0</h3>
+            <p class="text-muted">Years Experience</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews Section -->
+  <section id="reviews" class="section">
+    <div class="container">
+      <div class="section-title fade-in">
+        <h2>What Our Customers Say</h2>
+        <p>Don't just take our word for it - hear from our satisfied customers who have experienced
+           the thrill of riding with BikeRent Pro.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6 fade-in">
+          <div class="review-card h-100">
+            <div class="card border-0 shadow-lg h-100">
+              <div class="card-body p-4">
+                <div class="d-flex align-items-center mb-3">
+                  <img src="images/reviwe1.jpg" alt="Tony Stark" class="rounded-circle me-3"
+                       style="width: 60px; height: 60px; object-fit: cover;">
+                  <div>
+                    <h6 class="mb-0">Tony Stark</h6>
+                    <small class="text-muted">Tech Entrepreneur</small>
+                  </div>
+                </div>
+
+                <div class="rating mb-3">
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <span class="ms-2 text-muted">(5.0)</span>
+                </div>
+
+                <p class="card-text">
+                  "Exceptional service and an incredible fleet of motorcycles! I've rented from BikeRent Pro
+                  multiple times, and each experience has been flawless. The bikes are immaculately maintained,
+                  and the staff is knowledgeable and professional."
+                </p>
+
+                <div class="review-meta">
+                  <small class="text-muted">
+                    <i class="fas fa-calendar me-1"></i>Rented: Ducati Panigale V4
+                  </small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 fade-in">
+          <div class="review-card h-100">
+            <div class="card border-0 shadow-lg h-100">
+              <div class="card-body p-4">
+                <div class="d-flex align-items-center mb-3">
+                  <img src="images/reviwe2.jpg" alt="Sarah Johnson" class="rounded-circle me-3"
+                       style="width: 60px; height: 60px; object-fit: cover;">
+                  <div>
+                    <h6 class="mb-0">Sarah Johnson</h6>
+                    <small class="text-muted">Adventure Rider</small>
+                  </div>
+                </div>
+
+                <div class="rating mb-3">
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <span class="ms-2 text-muted">(5.0)</span>
+                </div>
+
+                <p class="card-text">
+                  "Perfect for my cross-country adventure! The BMW R1250GS I rented was in pristine condition
+                  and handled beautifully throughout my 2,000-mile journey. The rental process was smooth,
+                  and the support team was always available when needed."
+                </p>
+
+                <div class="review-meta">
+                  <small class="text-muted">
+                    <i class="fas fa-calendar me-1"></i>Rented: BMW R1250GS
+                  </small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 fade-in">
+          <div class="review-card h-100">
+            <div class="card border-0 shadow-lg h-100">
+              <div class="card-body p-4">
+                <div class="d-flex align-items-center mb-3">
+                  <img src="images/reviwe3.jpg" alt="Mike Rodriguez" class="rounded-circle me-3"
+                       style="width: 60px; height: 60px; object-fit: cover;">
+                  <div>
+                    <h6 class="mb-0">Mike Rodriguez</h6>
+                    <small class="text-muted">Weekend Warrior</small>
+                  </div>
+                </div>
+
+                <div class="rating mb-3">
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="fas fa-star text-warning"></i>
+                  <i class="far fa-star text-warning"></i>
+                  <span class="ms-2 text-muted">(4.8)</span>
+                </div>
+
+                <p class="card-text">
+                  "As a motorcycle enthusiast, I'm very particular about the bikes I ride. BikeRent Pro
+                  exceeded my expectations with their attention to detail and quality. The Harley I rented
+                  for my weekend trip was absolutely perfect!"
+                </p>
+
+                <div class="review-meta">
+                  <small class="text-muted">
+                    <i class="fas fa-calendar me-1"></i>Rented: Harley Street 750
+                  </small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Overall Rating -->
+      <div class="row mt-5 fade-in">
+        <div class="col-lg-8 mx-auto">
+          <div class="card bg-gradient-primary text-white text-center p-4">
+            <div class="card-body">
+              <h3 class="mb-3">Overall Customer Rating</h3>
+              <div class="d-flex justify-content-center align-items-center mb-3">
+                <div class="display-4 me-3">4.9</div>
+                <div>
+                  <div class="rating mb-2">
+                    <i class="fas fa-star fa-lg"></i>
+                    <i class="fas fa-star fa-lg"></i>
+                    <i class="fas fa-star fa-lg"></i>
+                    <i class="fas fa-star fa-lg"></i>
+                    <i class="fas fa-star fa-lg"></i>
+                  </div>
+                  <p class="mb-0">Based on 1,247 reviews</p>
+                </div>
+              </div>
+              <p class="mb-0">Join thousands of satisfied customers who trust BikeRent Pro for their motorcycle adventures!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section bg-light">
+    <div class="container">
+      <div class="section-title fade-in">
+        <h2>Get In Touch</h2>
+        <p>Ready to start your next adventure? Contact us today to reserve your perfect motorcycle
+           or get answers to any questions you might have.</p>
+      </div>
+
+      <div class="row g-5">
+        <div class="col-lg-8 fade-in">
+          <div class="card border-0 shadow-lg">
+            <div class="card-body p-5">
+              <h4 class="mb-4">Send us a Message</h4>
+              <form>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="firstName" placeholder="First Name">
+                      <label for="firstName">First Name</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+                      <label for="lastName">Last Name</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-floating">
+                      <input type="email" class="form-control" id="email" placeholder="Email">
+                      <label for="email">Email Address</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-floating">
+                      <input type="tel" class="form-control" id="phone" placeholder="Phone">
+                      <label for="phone">Phone Number</label>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-floating">
+                      <select class="form-select" id="subject">
+                        <option selected>Choose...</option>
+                        <option value="rental">Bike Rental Inquiry</option>
+                        <option value="support">Customer Support</option>
+                        <option value="feedback">Feedback</option>
+                        <option value="other">Other</option>
+                      </select>
+                      <label for="subject">Subject</label>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-floating">
+                      <textarea class="form-control" id="message" style="height: 120px" placeholder="Message"></textarea>
+                      <label for="message">Your Message</label>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <button type="submit" class="btn btn-primary btn-lg">
+                      <i class="fas fa-paper-plane me-2"></i>Send Message
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 fade-in">
+          <div class="contact-info">
+            <div class="card border-0 shadow-lg mb-4">
+              <div class="card-body p-4 text-center">
+                <i class="fas fa-map-marker-alt text-primary fa-2x mb-3"></i>
+                <h5>Visit Us</h5>
+                <p class="text-muted mb-0">123 Motorcycle Street<br>Bike City, BC 12345</p>
+              </div>
+            </div>
+
+            <div class="card border-0 shadow-lg mb-4">
+              <div class="card-body p-4 text-center">
+                <i class="fas fa-phone text-primary fa-2x mb-3"></i>
+                <h5>Call Us</h5>
+                <p class="text-muted mb-0">+1 (555) 123-BIKE<br>+1 (555) 123-RENT</p>
+              </div>
+            </div>
+
+            <div class="card border-0 shadow-lg mb-4">
+              <div class="card-body p-4 text-center">
+                <i class="fas fa-envelope text-primary fa-2x mb-3"></i>
+                <h5>Email Us</h5>
+                <p class="text-muted mb-0">info@bikerentpro.com<br>support@bikerentpro.com</p>
+              </div>
+            </div>
+
+            <div class="card border-0 shadow-lg">
+              <div class="card-body p-4 text-center">
+                <i class="fas fa-clock text-primary fa-2x mb-3"></i>
+                <h5>Business Hours</h5>
+                <p class="text-muted mb-0">Mon - Fri: 8AM - 8PM<br>Sat - Sun: 9AM - 6PM</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="footer-widget">
+            <h5 class="mb-4">
+              <img src="images/bike6.jpg" alt="BikeRent Pro" width="40" height="35" class="rounded-circle me-2">
+              BikeRent Pro
+            </h5>
+            <p class="mb-4">
+              Your premier destination for motorcycle rentals. Experience the thrill of the open road
+              with our premium fleet of well-maintained motorcycles.
+            </p>
+            <div class="social-links">
+              <a href="#" class="me-2"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="me-2"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="me-2"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="me-2"><i class="fab fa-youtube"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-6">
+          <div class="footer-widget">
+            <h5 class="mb-4">Quick Links</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2"><a href="#hero">Home</a></li>
+              <li class="mb-2"><a href="#bikes">Our Fleet</a></li>
+              <li class="mb-2"><a href="#about">About Us</a></li>
+              <li class="mb-2"><a href="#reviews">Reviews</a></li>
+              <li class="mb-2"><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-6">
+          <div class="footer-widget">
+            <h5 class="mb-4">Services</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2"><a href="#">Daily Rentals</a></li>
+              <li class="mb-2"><a href="#">Weekly Rentals</a></li>
+              <li class="mb-2"><a href="#">Monthly Rentals</a></li>
+              <li class="mb-2"><a href="#">Tour Packages</a></li>
+              <li class="mb-2"><a href="#">Insurance</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="footer-widget">
+            <h5 class="mb-4">Newsletter</h5>
+            <p class="mb-3">Subscribe to get updates on new bikes, special offers, and riding tips.</p>
+            <form class="newsletter-form">
+              <div class="input-group">
+                <input type="email" class="form-control" placeholder="Enter your email">
+                <button class="btn btn-primary" type="submit">
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+              </div>
+            </form>
+            <div class="contact-info mt-4">
+              <p class="mb-1"><i class="fas fa-phone me-2"></i>+1 (555) 123-BIKE</p>
+              <p class="mb-0"><i class="fas fa-envelope me-2"></i>info@bikerentpro.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="my-4 opacity-25">
+
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <p class="mb-0">&copy; 2024 BikeRent Pro. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <a href="#" class="me-3">Privacy Policy</a>
+          <a href="#" class="me-3">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button class="btn btn-primary btn-fab" id="backToTop" style="display: none;">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- jQuery -->
+  <script src="js/jquery.min.js"></script>
+
+  <!-- Custom JS -->
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>
