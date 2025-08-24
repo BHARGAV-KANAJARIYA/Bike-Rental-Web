@@ -18,12 +18,12 @@
 	<script>
         var accessToken = localStorage.getItem("access_token");
         if (accessToken != null) {
-            window.location.href = "form.html";
+            window.location.href = "index.html";
         }
     </script>
 </head>
 
-<body>
+<body class="login-page">
 	<!-- Page Loader -->
 	<div class="page-loader">
 		<div class="loader-spinner"></div>
@@ -32,33 +32,30 @@
 	<section class="min-vh-100 d-flex align-items-center">
 		<div class="container">
 			<div class="row justify-content-center">
-				<div class="col-lg-10 col-xl-8">
-					<div class="card border-0 shadow-2xl overflow-hidden">
+				<div class="col-lg-10 col-xl-9">
+					<div class="card border-0 auth-card overflow-hidden">
 						<div class="row g-0">
 							<!-- Left Side - Image -->
-							<div class="col-lg-6 d-none d-lg-block position-relative">
-								<div class="h-100 position-relative">
-									<img src="images/bg-1.jpg" alt="BikeRent Pro" class="w-100 h-100" style="object-fit: cover;">
-									<div class="position-absolute top-0 start-0 w-100 h-100 bg-gradient-primary opacity-75"></div>
-									<div class="position-absolute top-50 start-50 translate-middle text-center text-white">
-										<div class="mb-4">
-											<img src="images/bike6.jpg" alt="BikeRent Pro" width="80" height="70" class="rounded-circle shadow">
+							<div class="col-lg-6 d-none d-lg-block auth-image-side">
+								<img src="images/bg-1.jpg" alt="BikeRent Pro">
+								<div class="auth-content d-flex flex-column justify-content-center h-100">
+									<div class="mb-4">
+										<img src="images/bike6.jpg" alt="BikeRent Pro" class="auth-logo">
+									</div>
+									<h2 class="mb-3 fw-bold">Welcome Back!</h2>
+									<p class="lead mb-4">Ready for your next adventure? Sign in to access our premium motorcycle fleet and start your journey today.</p>
+									<div class="auth-features">
+										<div class="auth-feature">
+											<i class="fas fa-motorcycle me-3 fa-lg"></i>
+											<span class="fw-medium">150+ Premium Bikes</span>
 										</div>
-										<h2 class="mb-3">Welcome Back!</h2>
-										<p class="lead">Ready for your next adventure? Sign in to access our premium motorcycle fleet.</p>
-										<div class="mt-4">
-											<div class="d-flex justify-content-center align-items-center mb-2">
-												<i class="fas fa-motorcycle me-2"></i>
-												<span>150+ Premium Bikes</span>
-											</div>
-											<div class="d-flex justify-content-center align-items-center mb-2">
-												<i class="fas fa-shield-alt me-2"></i>
-												<span>Fully Insured</span>
-											</div>
-											<div class="d-flex justify-content-center align-items-center">
-												<i class="fas fa-headset me-2"></i>
-												<span>24/7 Support</span>
-											</div>
+										<div class="auth-feature">
+											<i class="fas fa-shield-alt me-3 fa-lg"></i>
+											<span class="fw-medium">Fully Insured & Safe</span>
+										</div>
+										<div class="auth-feature">
+											<i class="fas fa-headset me-3 fa-lg"></i>
+											<span class="fw-medium">24/7 Customer Support</span>
 										</div>
 									</div>
 								</div>
@@ -67,36 +64,41 @@
 							<!-- Right Side - Login Form -->
 							<div class="col-lg-6">
 								<div class="p-5">
-									<div class="text-center mb-4">
-										<h3 class="fw-bold text-primary">Sign In</h3>
-										<p class="text-muted">Access your BikeRent Pro account</p>
+									<div class="text-center mb-5">
+										<h3 class="fw-bold text-primary mb-2">Sign In</h3>
+										<p class="text-muted">Access your BikeRent Pro account and start your adventure</p>
 									</div>
 
 									<!-- Social Login -->
-									<div class="d-flex gap-2 mb-4">
-										<button class="btn btn-outline-primary flex-fill">
+									<div class="d-flex gap-3 mb-4">
+										<button type="button" class="btn social-btn facebook flex-fill">
 											<i class="fab fa-facebook-f me-2"></i>Facebook
 										</button>
-										<button class="btn btn-outline-info flex-fill">
+										<button type="button" class="btn social-btn google flex-fill">
 											<i class="fab fa-google me-2"></i>Google
 										</button>
 									</div>
 
 									<div class="text-center mb-4">
-										<span class="text-muted">or sign in with email</span>
+										<div class="position-relative">
+											<hr class="my-4">
+											<span class="position-absolute top-50 start-50 translate-middle bg-white px-3 text-muted">
+												or sign in with email
+											</span>
+										</div>
 									</div>
 
-									<form class="signin-form" onsubmit="return submitHandle()" action="form.html">
-										<div class="form-floating mb-3 input-animated">
-											<input type="text" class="form-control" id="email" placeholder="Username"
+									<form class="auth-form" onsubmit="return submitHandle()" action="index.html">
+										<div class="form-floating input-animated">
+											<input type="text" class="form-control" id="email" placeholder="Email or Username"
 												   onblur="emailValidation()" required>
-											<label for="email">Username</label>
+											<label for="email">Email or Username</label>
 											<div class="invalid-feedback">
-												Please enter a valid username.
+												Please enter a valid email or username.
 											</div>
 										</div>
 
-										<div class="form-floating mb-3 input-animated position-relative">
+										<div class="form-floating input-animated position-relative">
 											<input type="password" class="form-control" id="password-field" placeholder="Password"
 												   onblur="passValidation()" required>
 											<label for="password-field">Password</label>
@@ -105,7 +107,7 @@
 												<i class="fas fa-eye text-muted"></i>
 											</button>
 											<div class="invalid-feedback">
-												Please enter a valid password.
+												Please enter your password (minimum 6 characters).
 											</div>
 										</div>
 
@@ -119,31 +121,43 @@
 											<a href="#" class="text-decoration-none">Forgot Password?</a>
 										</div>
 
-										<button type="submit" class="btn btn-primary w-100 mb-3 py-3">
-											<i class="fas fa-sign-in-alt me-2"></i>Sign In
+										<button type="submit" class="auth-btn w-100 mb-4">
+											<i class="fas fa-sign-in-alt me-2"></i>Sign In to Your Account
 										</button>
 									</form>
 
 									<div class="text-center">
-										<p class="mb-0">Don't have an account?
+										<p class="mb-2">Don't have an account?
 											<a href="acount.html" class="text-decoration-none fw-medium">Create Account</a>
 										</p>
+										<div class="mt-3 p-3 bg-light rounded">
+											<small class="text-muted">
+												<i class="fas fa-info-circle me-1"></i>
+												<strong>Demo Login:</strong> Use "admin" / "password" or your registered email/name
+											</small>
+										</div>
 									</div>
 
-									<!-- Features -->
-									<div class="mt-4 pt-4 border-top">
+									<!-- Security Features -->
+									<div class="security-features">
 										<div class="row text-center">
 											<div class="col-4">
-												<i class="fas fa-lock text-success mb-2"></i>
-												<small class="d-block text-muted">Secure</small>
+												<div class="security-feature">
+													<i class="fas fa-lock text-success"></i>
+													<small class="d-block text-muted fw-medium">Secure Login</small>
+												</div>
 											</div>
 											<div class="col-4">
-												<i class="fas fa-bolt text-warning mb-2"></i>
-												<small class="d-block text-muted">Fast</small>
+												<div class="security-feature">
+													<i class="fas fa-bolt text-warning"></i>
+													<small class="d-block text-muted fw-medium">Fast Access</small>
+												</div>
 											</div>
 											<div class="col-4">
-												<i class="fas fa-heart text-danger mb-2"></i>
-												<small class="d-block text-muted">Trusted</small>
+												<div class="security-feature">
+													<i class="fas fa-heart text-danger"></i>
+													<small class="d-block text-muted fw-medium">Trusted Platform</small>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -170,20 +184,20 @@
 <script>
 	// Enhanced form validation with visual feedback
 	function emailValidation() {
-		var email = $("#email").val();
+		var email = $("#email").val().trim();
 		var $emailField = $("#email");
 
-		// Username validation (allowing alphanumeric and special characters)
-		var reg = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[~!@#$%^&]).{8,32}$/;
+		// Simple email validation for login
+		var emailReg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+		var usernameReg = /^[A-Za-z\s]{2,50}$/; // Allow names with spaces
 
-		if (email == "") {
+		if (email === "") {
 			$emailField.removeClass('is-valid').addClass('is-invalid');
-			console.log("Please fill the email field");
 			return false;
 		}
-		else if (!reg.test(email)) {
+		// Accept either email format or simple username/full name
+		else if (!emailReg.test(email) && !usernameReg.test(email) && email.length < 2) {
 			$emailField.removeClass('is-valid').addClass('is-invalid');
-			console.log("Email field not valid");
 			return false;
 		}
 		else {
@@ -196,16 +210,12 @@
 		var pass = $("#password-field").val();
 		var $passField = $("#password-field");
 
-		var reg = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[~!@#$%^&]).{8,32}$/;
-
-		if (pass == "") {
+		if (pass === "") {
 			$passField.removeClass('is-valid').addClass('is-invalid');
-			console.log("Please fill the password field");
 			return false;
 		}
-		else if (!reg.test(pass)) {
+		else if (pass.length < 6) {
 			$passField.removeClass('is-valid').addClass('is-invalid');
-			console.log("Password field not valid");
 			return false;
 		}
 		else {
@@ -219,29 +229,56 @@
 		var passRes = passValidation();
 
 		if (emailRes && passRes) {
-			var email = $("#email").val();
-			var pass = $("#password-field").val();
+			var inputEmail = $("#email").val().trim();
+			var inputPass = $("#password-field").val();
 
-			var encodedString = btoa(email + " " + pass);
-			localStorage.setItem("access_token", encodedString);
+			// Check if user data exists in localStorage
+			var userData = localStorage.getItem("user_data");
+			var isValidUser = false;
 
-			// Show success message
-			showNotification("Login successful! Redirecting...", "success");
+			if (userData) {
+				try {
+					var user = JSON.parse(userData);
+					// Check if login matches registered user (email or full name)
+					if ((user.email === inputEmail || user.fullName === inputEmail) && inputPass.length >= 6) {
+						isValidUser = true;
+					}
+				} catch (e) {
+					console.log("Error parsing user data");
+				}
+			}
 
-			// Add loading state to button
-			var $submitBtn = $('button[type="submit"]');
-			$submitBtn.html('<i class="fas fa-spinner fa-spin me-2"></i>Signing In...');
-			$submitBtn.prop('disabled', true);
+			// For demo purposes, also allow default credentials
+			if (!isValidUser && (inputEmail === "admin" || inputEmail === "demo@bikerent.com") && inputPass === "password") {
+				isValidUser = true;
+			}
 
-			// Redirect after a short delay
-			setTimeout(() => {
-				return true;
-			}, 1000);
+			if (isValidUser) {
+				// Create access token
+				var encodedString = btoa(inputEmail + " " + inputPass);
+				localStorage.setItem("access_token", encodedString);
 
-			return true;
+				// Show success message
+				showNotification("Login successful! Welcome back!", "success");
+
+				// Add loading state to button
+				var $submitBtn = $('button[type="submit"]');
+				$submitBtn.html('<i class="fas fa-spinner fa-spin me-2"></i>Signing In...');
+				$submitBtn.prop('disabled', true);
+
+				// Redirect after a short delay
+				setTimeout(() => {
+					window.location.href = "index.html";
+				}, 1500);
+
+				return false; // Prevent form submission
+			} else {
+				showNotification("Invalid credentials. Please check your email/username and password.", "error");
+				return false;
+			}
 		}
 
-		showNotification("Please check your credentials and try again.", "error");
+		showNotification("Please fill in all fields correctly.", "error");
 		return false;
 	}
 

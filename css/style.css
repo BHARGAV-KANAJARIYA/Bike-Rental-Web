@@ -1204,6 +1204,261 @@ html {
   background: linear-gradient(135deg, var(--primary-dark), var(--secondary-dark));
 }
 
+/* Enhanced Login & Register Page Styles */
+.login-page,
+.register-page {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-page::before,
+.register-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="10" cy="50" r="0.5" fill="rgba(255,255,255,0.05)"/><circle cx="90" cy="30" r="0.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  opacity: 0.3;
+  animation: float 20s ease-in-out infinite;
+}
+
+/* Enhanced Card Styling for Auth Pages */
+.auth-card {
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  animation: slideInUp 0.8s ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced Form Styling */
+.auth-form .form-floating {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.auth-form .form-control {
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: 1.2rem 1rem 0.6rem;
+  font-size: 1rem;
+  transition: all var(--transition-normal);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.auth-form .form-control:focus {
+  background: var(--white);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1), 0 4px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.auth-form .form-floating label {
+  color: var(--gray-500);
+  font-weight: 500;
+  transition: all var(--transition-normal);
+}
+
+.auth-form .form-control:focus ~ label,
+.auth-form .form-control:not(:placeholder-shown) ~ label {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Enhanced Button Styling for Auth Pages */
+.auth-btn {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--white);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+}
+
+.auth-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left var(--transition-slow);
+}
+
+.auth-btn:hover::before {
+  left: 100%;
+}
+
+.auth-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+}
+
+.auth-btn:active {
+  transform: translateY(-1px);
+}
+
+/* Social Login Buttons */
+.social-btn {
+  border: 2px solid var(--gray-200);
+  background: var(--white);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.social-btn.facebook:hover {
+  border-color: #1877f2;
+  color: #1877f2;
+}
+
+.social-btn.google:hover {
+  border-color: #ea4335;
+  color: #ea4335;
+}
+
+/* Enhanced Image Side Styling */
+.auth-image-side {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-image-side::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(37, 99, 235, 0.8), rgba(245, 158, 11, 0.8));
+  z-index: 1;
+}
+
+.auth-image-side img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.auth-content {
+  position: relative;
+  z-index: 2;
+  color: var(--white);
+  text-align: center;
+  padding: 2rem;
+}
+
+.auth-logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid var(--white);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.auth-features {
+  margin-top: 2rem;
+}
+
+.auth-feature {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: fadeInLeft 0.8s ease-out forwards;
+}
+
+.auth-feature:nth-child(1) { animation-delay: 0.2s; }
+.auth-feature:nth-child(2) { animation-delay: 0.4s; }
+.auth-feature:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Enhanced Validation Feedback */
+.form-control.is-invalid {
+  border-color: var(--danger-color);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+  animation: shake 0.5s ease-in-out;
+}
+
+.form-control.is-valid {
+  border-color: var(--success-color);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Enhanced Security Features */
+.security-features {
+  background: var(--gray-50);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+.security-feature {
+  text-align: center;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.security-feature:nth-child(1) { animation-delay: 0.1s; }
+.security-feature:nth-child(2) { animation-delay: 0.2s; }
+.security-feature:nth-child(3) { animation-delay: 0.3s; }
+
+.security-feature i {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
 /* Focus Styles */
 *:focus {
   outline: 2px solid var(--primary-color);

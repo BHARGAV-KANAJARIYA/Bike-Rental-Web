@@ -16,7 +16,7 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="register-page">
 	<!-- Page Loader -->
 	<div class="page-loader">
 		<div class="loader-spinner"></div>
@@ -26,32 +26,29 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-lg-11 col-xl-10">
-					<div class="card border-0 shadow-2xl overflow-hidden">
+					<div class="card border-0 auth-card overflow-hidden">
 						<div class="row g-0">
 							<!-- Left Side - Image -->
-							<div class="col-lg-5 d-none d-lg-block position-relative">
-								<div class="h-100 position-relative">
-									<img src="images/bg-1.jpg" alt="BikeRent Pro" class="w-100 h-100" style="object-fit: cover;">
-									<div class="position-absolute top-0 start-0 w-100 h-100 bg-gradient-secondary opacity-75"></div>
-									<div class="position-absolute top-50 start-50 translate-middle text-center text-white">
-										<div class="mb-4">
-											<img src="images/bike6.jpg" alt="BikeRent Pro" width="80" height="70" class="rounded-circle shadow">
+							<div class="col-lg-5 d-none d-lg-block auth-image-side">
+								<img src="images/bg-1.jpg" alt="BikeRent Pro">
+								<div class="auth-content d-flex flex-column justify-content-center h-100">
+									<div class="mb-4">
+										<img src="images/bike6.jpg" alt="BikeRent Pro" class="auth-logo">
+									</div>
+									<h2 class="mb-3 fw-bold">Join BikeRent Pro!</h2>
+									<p class="lead mb-4">Create your account and unlock access to our premium motorcycle fleet with exclusive member benefits.</p>
+									<div class="auth-features">
+										<div class="auth-feature">
+											<i class="fas fa-gift me-3 fa-lg"></i>
+											<span class="fw-medium">Special Welcome Offer</span>
 										</div>
-										<h2 class="mb-3">Join BikeRent Pro!</h2>
-										<p class="lead">Create your account and unlock access to our premium motorcycle fleet.</p>
-										<div class="mt-4">
-											<div class="d-flex justify-content-center align-items-center mb-2">
-												<i class="fas fa-gift me-2"></i>
-												<span>Special Welcome Offer</span>
-											</div>
-											<div class="d-flex justify-content-center align-items-center mb-2">
-												<i class="fas fa-star me-2"></i>
-												<span>Premium Membership</span>
-											</div>
-											<div class="d-flex justify-content-center align-items-center">
-												<i class="fas fa-motorcycle me-2"></i>
-												<span>Instant Access</span>
-											</div>
+										<div class="auth-feature">
+											<i class="fas fa-star me-3 fa-lg"></i>
+											<span class="fw-medium">Premium Membership</span>
+										</div>
+										<div class="auth-feature">
+											<i class="fas fa-motorcycle me-3 fa-lg"></i>
+											<span class="fw-medium">Instant Fleet Access</span>
 										</div>
 									</div>
 								</div>
@@ -60,25 +57,30 @@
 							<!-- Right Side - Registration Form -->
 							<div class="col-lg-7">
 								<div class="p-5">
-									<div class="text-center mb-4">
-										<h3 class="fw-bold text-primary">Create Account</h3>
-										<p class="text-muted">Join thousands of satisfied riders</p>
+									<div class="text-center mb-5">
+										<h3 class="fw-bold text-primary mb-2">Create Account</h3>
+										<p class="text-muted">Join thousands of satisfied riders and start your adventure today</p>
 									</div>
 
 									<!-- Social Registration -->
-									<div class="d-flex gap-2 mb-4">
-										<button class="btn btn-outline-primary flex-fill">
+									<div class="d-flex gap-3 mb-4">
+										<button type="button" class="btn social-btn facebook flex-fill">
 											<i class="fab fa-facebook-f me-2"></i>Facebook
 										</button>
-										<button class="btn btn-outline-info flex-fill">
+										<button type="button" class="btn social-btn google flex-fill">
 											<i class="fab fa-google me-2"></i>Google
 										</button>
 									</div>
 
 									<div class="text-center mb-4">
-										<span class="text-muted">or create account with email</span>
+										<div class="position-relative">
+											<hr class="my-4">
+											<span class="position-absolute top-50 start-50 translate-middle bg-white px-3 text-muted">
+												or create account with email
+											</span>
+										</div>
 									</div>
-									<form class="signin-form" onsubmit="return submitHandle()" action="form.html">
+									<form class="auth-form" onsubmit="return submitHandle()" action="index.html">
 										<div class="row g-3">
 											<div class="col-md-6">
 												<div class="form-floating input-animated">
@@ -153,8 +155,8 @@
 											</label>
 										</div>
 
-										<button type="submit" class="btn btn-primary w-100 mb-3 py-3">
-											<i class="fas fa-user-plus me-2"></i>Create Account
+										<button type="submit" class="auth-btn w-100 mb-4">
+											<i class="fas fa-user-plus me-2"></i>Create Your Account
 										</button>
 									</form>
 
@@ -165,19 +167,25 @@
 									</div>
 
 									<!-- Security Features -->
-									<div class="mt-4 pt-4 border-top">
+									<div class="security-features">
 										<div class="row text-center">
 											<div class="col-4">
-												<i class="fas fa-shield-alt text-success mb-2"></i>
-												<small class="d-block text-muted">Secure</small>
+												<div class="security-feature">
+													<i class="fas fa-shield-alt text-success"></i>
+													<small class="d-block text-muted fw-medium">Secure Registration</small>
+												</div>
 											</div>
 											<div class="col-4">
-												<i class="fas fa-user-check text-primary mb-2"></i>
-												<small class="d-block text-muted">Verified</small>
+												<div class="security-feature">
+													<i class="fas fa-user-check text-primary"></i>
+													<small class="d-block text-muted fw-medium">Verified Account</small>
+												</div>
 											</div>
 											<div class="col-4">
-												<i class="fas fa-lock text-warning mb-2"></i>
-												<small class="d-block text-muted">Protected</small>
+												<div class="security-feature">
+													<i class="fas fa-lock text-warning"></i>
+													<small class="d-block text-muted fw-medium">Data Protected</small>
+												</div>
 											</div>
 										</div>
 									</div>
